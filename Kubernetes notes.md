@@ -32,6 +32,25 @@ Nowadays, Kubernets has the next supported container runtimes:
 - Cri-0
 - containerd
 
+# What is a Pod
+> **Time stamp:** 00:06:46
+
+A pod is the smallest unit in the Kubernets World, being that containers are created inside pods. They may have one or more containes, there are shared voulmes and shared resources like shared IP address:
+
+![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/4a8e027c-7f37-4279-a53e-b7c7ebe1c3a5)
+
+This menas that all containers inside of the same pod share volumes and shares IP address. Usuarlly when the containers have to be tightened together and they heavily depend on each other and they could exist in the same namespacd, it is possible to create several containers in the same pod.
+
+> 💡 One container per pod is the most common use case.
+
+Remember that each pod must be located on the same server. **It is not possible to spread containers from one pod across different servers**.
+
+> 💡 One pod - One server.
+
+
+
+
+
 
 
 
