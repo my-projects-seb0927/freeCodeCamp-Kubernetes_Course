@@ -61,6 +61,21 @@ In all Kubernetes clusters there are tho type of nodes:
   - It works like a kind of control plane, because it does not run client applications.
 - **Worker nodes:** All boards that are related to your application are deployed on worker nodes.
 
+# Kubernetes services
+> **Time stamp:** 00:10:41
+
+- **Kubelet:** It communicates with API servers on the master node.
+- **Kube-proxy:** It is responsible for network communication inside of each node and between nodes. 
+- **Container-runtime:** It runs the actual containers inside of each node.
+
+- **API server:** It is the main point of communication between different nodes in the Kubernetes world.
+- **Scheduler:** It is responsible for planning and distribution of the load between different nodes.
+- **Kube Controller Manager:** It is a single point which controls everything actually in the Kubernetes cluster, controlling what happens on each of the nodes in the cluster.
+- **Cloud Controller Manager:** It interacts with cloud service providers where you actually run your Kubernetes cluster.
+- **etcd:** It stores all logs related to operation of the entire Kubernetes cluster.
+- **DNS:** It is responsible flor names resolution in the entire Kubernetes cluster.
+
+![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/38d28312-270f-43a1-941e-26afe03f4adb)
 
 
 
