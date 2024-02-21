@@ -39,13 +39,30 @@ A pod is the smallest unit in the Kubernets World, being that containers are cre
 
 ![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/4a8e027c-7f37-4279-a53e-b7c7ebe1c3a5)
 
-This menas that all containers inside of the same pod share volumes and shares IP address. Usuarlly when the containers have to be tightened together and they heavily depend on each other and they could exist in the same namespacd, it is possible to create several containers in the same pod.
+This means that all containers inside of the same pod share volumes and shares IP address. Usuarlly when the containers have to be tightened together and they heavily depend on each other and they could exist in the same namespacd, it is possible to create several containers in the same pod.
 
 > 💡 One container per pod is the most common use case.
 
 Remember that each pod must be located on the same server. **It is not possible to spread containers from one pod across different servers**.
 
 > 💡 One pod - One server.
+
+# Kubernetes Cluster and Nodes
+> **Time stamp:** 00:08:21
+
+A kubernetes cluster constist of nodes, where nodes are servers either a metal server or virtual server. Inside of the nodes there are pods and inside of each pod there are contianers. We are in charge of setting up clusters, nodes and podes, but after they are done Kubernetes will automatically handle them.
+
+![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/4c713c9f-1661-4524-a1b1-23991a729841)
+
+## How do nodes communicate?
+In all Kubernetes clusters there are tho type of nodes:
+- **Master nodes:** It only exists one master node on every Kuberentes cluster. It manages worker nodes like for example distribute the work between each worker node.
+  - It runs only system ports, which are responsible for actual work of the Kubernetes cluster in general.
+  - It works like a kind of control plane, because it does not run client applications.
+- **Worker nodes:** All boards that are related to your application are deployed on worker nodes.
+
+
+
 
 
 
