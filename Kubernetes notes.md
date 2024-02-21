@@ -77,6 +77,18 @@ In all Kubernetes clusters there are tho type of nodes:
 
 ![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/38d28312-270f-43a1-941e-26afe03f4adb)
 
+# What is kubectl? - Cluster management
+> **Time stamp:** 00:14:24
+
+kubectl, also known as "Kube controller", it is a command line tool which allows you to connect to specific Kubernetes clusters and manage them remotely. kubectl could be running even on your local computer, and using such kubectl tool you can manage a remote Kubernetes cluster, even connecting to it using REST API to the API server service on the master node using communication through HTTPS.
+
+> 💡 Worker nodes communicates with theaster node in the same way.
+
+
+
+
+
+
 
 
 
