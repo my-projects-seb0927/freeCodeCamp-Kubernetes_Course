@@ -84,13 +84,21 @@ kubectl, also known as "Kube controller", it is a command line tool which allows
 
 > 💡 Worker nodes communicates with theaster node in the same way.
 
+# Creating Kubernetes cluster using Minikube
+> **Time stamp:** 00:29:43
 
+It will show you the current status of minikube:
+```
+# minikube status
+```
 
+In order to create a cluster and start minikube:
+```
+# minikube start --driver=docker
+```
+In my case, I'm using docker so I indicate to minikube that is the driver I'm currently using.
 
-
-
-
-
+> 💡 When Minikube finishes, you will read `Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default`. What is saying is that you don't have to do something in order to connect from kubectl to the actual minikube cluster, happening that this connection was automatically done.
 
 
 
