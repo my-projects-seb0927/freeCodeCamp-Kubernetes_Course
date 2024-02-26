@@ -167,14 +167,32 @@ We already know that Kubernetes run on a server, so that means that we can conne
   ```
   In this case, we are listing all the pods inside of `kube-system`
 
- 
+ # Creating just single Pod
+ > **Time stamp:** 00:40:38
 
+- For creating a pod:
+  ```
+  # kubectl run [NAME] --image=[DOCKER IMAGE NAME]
+  ```
 
+  In our case, we are going to create a pod called "nginx" which is going to have inside a docker container pulling the image of *nginx* that will be running inside of the pod:
+  ```
+  # kubectl run nginx --image=nginx
+  ```
 
+- Viewing the pods again will show us that there is a pod called *nginx* with the command:
+  ```
+  # kubectl get pods
+  ```
 
+- Viewing the details of a pod:
+  ```
+  # kubectl describe pod [POD'S NAME]
+  ```
+  - Here we can view many different details of the pod we wanted like Name, namespace, priority, node, start time, and many more information!
 
+  - The IP address displayed on this command will not be able to connect to this particular pod using such internal IP address of the pod. **For connecting to pods, you have to create services in Kubernetes**.
+  
+  - There is information about the containers running inside of this pod
 
-
-```
-```
-
+  - And at the end we can see the logs of this pod.
