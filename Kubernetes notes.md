@@ -241,9 +241,57 @@ We already know that Kubernetes run on a server, so that means that we can conne
 
 On linux you can do it easily:
 ```
-alias k="kubectl"
+# alias k="kubectl"
 ```
 So now I don't have to type `kubectl` but `k`. But this is not permanent, because then you have to edit your shell configuration profile.
 
 On Windows - Powershell is not possible to do it but you can do it through the git bash.
+
+# Creating and exploring Deployment
+> **Time stamp:** 00:55:20
+
+Remember that it is not convenient to create separate pods inside of the Kubernetes cluster because you are not able to scale and increase quantity of the pods.
+
+So the most common way to create multiple pods is by using deployments, which will be responsible for creation of the actual pods
+
+- Creating a deployment:
+  ```
+  # kubectl create deployment [NAME] --image=[IMAGE NAME]
+  ```
+  So if we want to create a deployment for *nginx*:
+  ```
+  # kubectl create deployment nginx-deployment --image=nginx
+  ```
+
+- Listing all deployments:
+  ```
+  # kubectl get deployments
+  ```
+  If we list again all podes with `kubectl get pods` we will see that there is a pod created automatically **managed by the deployment**, not by us.
+
+- Listing the description of a deployment
+  ```
+  # kubectl describe [DEPLOYMENT NAME]
+  ```
+  With this command, we can see the name, namespace, creation, labels, annotations, selector, replicas, strategy type,  and many more information of the deployment
+
+  - Deployment are connected with pods through the label, because you will see that they have the same labels.
+  - At the end you may see the Events of the deployment (Something like the logs).
+  - **ReplicaSet:** ReplicaSet manages all pods related to deployment, being a set of replicas of the application.
+    - Usually, the pods managed by a replica set will have a name like this: `nginx-deployment-84cd76b964-tw79f`. Being the last hash an ID.
+    - If there are multiple pods in the same deployment which belongs to the same replica set, you'see the same names but with different hashes for different pods.
+
+- Scaling a deployment for increasing quantity of the pods inside of the deployment:
+  ```
+  # kubectl scale deployment [DEPLOYMENT NAME] --replicas=[AMOUNT]
+  ```
+
+  So if we wanted five replicas, we can do it like this:
+  ```
+  # kubectl scale deployment nginx-deployment --replica=3
+  ```
+
+  - Even though the pods are the same, if you do `kubectl get pods -o wide`, you will see that each one of them has a different IP address.
+  - They are created just on a single node, but if there were more nodes, the load would've been distributed on different nodes
+
 
