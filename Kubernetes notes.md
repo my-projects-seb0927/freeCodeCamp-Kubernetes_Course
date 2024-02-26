@@ -294,4 +294,14 @@ So the most common way to create multiple pods is by using deployments, which wi
   - Even though the pods are the same, if you do `kubectl get pods -o wide`, you will see that each one of them has a different IP address.
   - They are created just on a single node, but if there were more nodes, the load would've been distributed on different nodes
 
+# Conncecting to one of the Pods using its IP address
+> **Time stamp:** 01:07:02
+
+This is just the same process as the **Exploring Kubernetes Pod** chapter.
+
+**Recomendations:**
+- Connecting to the pods is possible from the node, but these IP addresses are assigned dynamically when the pods are created.
+  - It's recommended to not rely on these IP addresses because of that.
+- There is a service for connecting to the pods taking in account what said before.
+
 
