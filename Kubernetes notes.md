@@ -275,7 +275,7 @@ So the most common way to create multiple pods is by using deployments, which wi
   ```
   With this command, we can see the name, namespace, creation, labels, annotations, selector, replicas, strategy type,  and many more information of the deployment
 
-  - Deployment are connected with pods through the label, because you will see that they have the same labels.
+  - Deployment are co:nnected with pods through the label, because you will see that they have the same labels.
   - At the end you may see the Events of the deployment (Something like the logs).
   - **ReplicaSet:** ReplicaSet manages all pods related to deployment, being a set of replicas of the application.
     - Usually, the pods managed by a replica set will have a name like this: `nginx-deployment-84cd76b964-tw79f`. Being the last hash an ID.
@@ -303,5 +303,16 @@ This is just the same process as the **Exploring Kubernetes Pod** chapter.
 - Connecting to the pods is possible from the node, but these IP addresses are assigned dynamically when the pods are created.
   - It's recommended to not rely on these IP addresses because of that.
 - There is a service for connecting to the pods taking in account what said before.
+
+# What is a Service
+> **Time stamp:** 01:09:24
+
+If you want to connect to specific deployments using an specific IP address you have to create **services**. There are many options:
+
+- Create a ClusterIP and that IP address will be created and assigned to specific deployment and you will be able to connect to that specific deployment all inside of the cluster using a kind of **virtual IP address**.
+  - Take a note, it will be just a single IP address for the entire deployment.
+- There was an option to create external IP addresses to open deployment to outside world. It is possible to expose specific deployment to the IP address of the node or use a load balancer.
+  - **The most common solution:** To have a load balancer IP address, which will be just single for the entire Kubernetes cluster for a specific deployment.
+    -  It means that you will be able to connect to your deployment no matter where pods are created using just a single external IP address
 
 
