@@ -196,3 +196,39 @@ We already know that Kubernetes run on a server, so that means that we can conne
   - There is information about the containers running inside of this pod
 
   - And at the end we can see the logs of this pod.
+
+# Exploring Kubernetes Pod
+> **Time stamp:** 00:46:07
+
+- If we re-enter to the node again with `ssh docker@[IP ADDRESS]` and list again all the docker containers running that are related with nginx:
+  ```
+  # docker ps | grep nginx
+  ```
+
+  We may see two different containers, but those are related with nginx. The second on which has *"/pause"* is called the **Pause container**, and it is required to keep the namespace of the pod.
+
+- In order to connect to a container, we may use the container's ID or name:
+  ```
+  docker exec -it [CONTAINER ID] sh
+  ```
+  And now you are inside of the container, you can check it with `hostname`. In our case, should be *`nginx`*, and with `hostname -i`we should see the IP address that we seaw in the details of the pod.
+
+- Now, for connecting to the web server that is running on the nginx container, we can do it like this:
+  ```
+  curl [IP ADDRESS]
+  ```
+  And we can see the Welcome nginx page, meaning that is running with out no problem
+
+  By the moment we have seen what we needed, we can exit now from the container.
+  
+- Listing all pods with more information:
+  ```
+  # kubectl get pods -o wide
+  ```
+  And with this we will not only have the information of each pod but also IP address of those particular pods in the output.c
+
+- For deleting a pod:
+  ```
+  # kubectl delete pod [POD'S NAME]
+  ```
+  All the volumes, namespaces related to the pod are gone as well
