@@ -232,3 +232,18 @@ We already know that Kubernetes run on a server, so that means that we can conne
   # kubectl delete pod [POD'S NAME]
   ```
   All the volumes, namespaces related to the pod are gone as well
+
+
+# Creating alias for the kubectl command
+> **Time stamp:** 00:53:00
+
+`Kubectl` is a relatively long command, so we can create alias for a command in order to save some time.
+
+On linux you can do it easily:
+```
+alias k="kubectl"
+```
+So now I don't have to type `kubectl` but `k`. But this is not permanent, because then you have to edit your shell configuration profile.
+
+On Windows - Powershell is not possible to do it but you can do it through the git bash.
+
