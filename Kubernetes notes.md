@@ -100,9 +100,81 @@ In my case, I'm using docker so I indicate to minikube that is the driver I'm cu
 
 > 💡 When Minikube finishes, you will read `Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default`. What is saying is that you don't have to do something in order to connect from kubectl to the actual minikube cluster, happening that this connection was automatically done.
 
+# Exploring the Kubernetes node
+> **Time stamp:** 00:33:50
+
+We already know that Kubernetes run on a server, so that means that we can connect to that server through SSH protocol.
+
+- For knowing our minikube ip:
+  ```
+  # minikube ip
+  ```
+  And with that we can see which IP address was assigned to the virtual machine that is running our Kubernetes node.
+
+
+- For connecting to the server:
+  ```
+  # ssh docker@[IP Address]
+
+  ### This can also work:
+  # shh docker@$minikube ip
+  ```
+  These are the credentials for entering to the server:
+  - **Username:** docker
+  - **Password:** tcuser
+
+  > 💡 If you set **`--driver=docker`** when you started minikube, you have to use `minikube ssh`.
+
+
+- For listing all the running docker containers:
+  ```
+  # docker ps
+  ```
+  Since we can't manage kubernetes nodes here because kubectl is not installed on the server, we need to exit it in order to use kubectl in our machine.
+
+  > 💡 You can also use minikube for kubectl commands, just adding `minikube` at the beggining.
+
+
+- For viewing the cluster's information:
+  ```
+  # kubectl cluster-info
+  ```
+  Here we can see many aspects:
+  - The IP address of the server where Kubernetes is running.
+  - CoreDNS is running which means we can create Deployent, Services, etc on our Kubernetes cluster.
+
+- Listing all the nodes available in our Kubernetes cluster:
+  ```
+  # kubectl get nodes
+  ```
+  Because Minikube only creates a single node, that's what usually there is, showing the name, status, roles, age and version.
+
+- Listing all the pods in our Kubernetes cluster:
+  ```
+  # kubectl get pods
+  ```
+  This commands lists all the pods available inside of the **default namespace**.
+
+- Listing all namespaces available found in default namespaces which are availables:
+  ```
+  # kubectl get namespaces
+  ```
+  **Namespaces** are used in Kubernets in order to group different resources and configuration objects. Here 
+
+- Listing all pods running inside of the default namespace:
+  ```
+  # kubectl get pods --namespace=kube-system
+  ```
+  In this case, we are listing all the pods inside of `kube-system`
+
+ 
 
 
 
 
 
+
+
+```
+```
 
