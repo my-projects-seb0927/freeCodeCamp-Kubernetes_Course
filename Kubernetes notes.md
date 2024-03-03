@@ -346,12 +346,29 @@ If you want to connect to specific deployments using an specific IP address you 
 
 If we grab the *nginx-deployment* Cluster-IP and try from our local machine:
 ```
-curl [NGINX CLUSTER-IP]:8080
+# curl [NGINX CLUSTER-IP]:8080
 ```
 
 **It will not work** because this IP is only available inside the cluster, so you have to `minikube ssh` and if you try to connect again you will be capable of connecting to the deployment.
 
+# Deleting Deployment and Service
+> **Time stamp::** 01:21:21
+
+For deleting deployments and services:
+```
+# kubectl delete deployment [DEPLOYMENT NAME]
+# kubectl delte service [SERVICE NAME]
+```
 
 
-   
 
+
+
+
+
+
+
+
+
+```
+```
