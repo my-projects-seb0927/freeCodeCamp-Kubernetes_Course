@@ -404,3 +404,14 @@ For these notes, I'll be using my dockerhub username: seb0927
 ```
 # docker build ./ -t seb0927/k8s-web-hello
 ```
+
+# Pushing custom image to the Docker Hub
+> **Time stamp:** 01:38:32
+
+Just do the process:
+```
+# docker login
+# docker push seb0927/k8s-web-hello
+```
+
+For the Kubernetes deployment, I will be using mine, but you can use the one from Bodgan Stashchuk: *bstashchuk/k8s-web-hello*
