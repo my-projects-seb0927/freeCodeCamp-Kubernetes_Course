@@ -486,6 +486,33 @@ And now there is a LoadBalancer service. If you do `kubectl get services` you wi
 
 Here in Minikube, the behaviour of LoadBalancer is similar to NodePort
 
+# Rolling update of the deployment
+> **Time stamp:** 1:57:00
+
+If you make `kubectl describe deploy k8s-web-hello` you will see that the StrategyType is ***RollingUpdate***. That means that when a new version of your application is out, you want to roll out this new version without interrupting your service.
+
+That strategy type is indicating that new pods will be creted with the new image while previous pods will be still running, meaning that pods will be replaced one by one.
+
+Here in this part Bodgan Stashchuk will roll out a new version of the application in order to see how does this works
+
+- Basically, he updates the code and updated the docker image like this:
+  ```
+  # docker build ./ -t seb0927/k8s-web-hello:2.0.0
+  # docker push seb0927/k8s-web-hello:2.0.0
+  ```
+
+- And it sets the image to the deployment:
+  ```
+  # kubectl set image deployment k8s-web-hello k8s-web-hello=seb0927/k8s-web-hello:2.0.0
+  ```
+
+- And finally rolls out the new version:
+  ```
+  # kubectl rollout status deploy k8s-web-hello
+  ```
+  And our new version is now rolled out! (`minikube service k8s-web-hello`)
+
+
 
 
 
