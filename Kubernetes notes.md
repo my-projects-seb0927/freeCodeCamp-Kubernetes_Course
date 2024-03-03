@@ -315,4 +315,33 @@ If you want to connect to specific deployments using an specific IP address you 
   - **The most common solution:** To have a load balancer IP address, which will be just single for the entire Kubernetes cluster for a specific deployment.
     -  It means that you will be able to connect to your deployment no matter where pods are created using just a single external IP address
 
+# Creating and exploring ClusterIP service
+> **Time stamp:** 01:11:26
+
+- Read the details about size deployment:
+  ```
+  # kubectl get deployments
+  ```
+
+  So what is next is to create a service for exposing a specific port from the deployment.
+
+  Since we hace nginx running on each pod, and we know that nginx web server runs at Port 80, it means that we have to expose internal port 80 from the containers to any other prod outside of the deployment.
+
+- Exposing the internal port of the containers from a deployment:
+  ```
+  # kubectl expose deployment [DEPLOYMENT NAME] --port:[EXTERNAL PORT] --target-port:[INTERNAL CONTAINER PORT]
+  ```
+
+  So in our case of our nginx example:
+  ```
+  # kubectl expose deployment nginx-deployment --port=8080 --target-port=80
+  ```
+
+  And that means that the port exposed from the ngninx-deployment will be exposed in our machine through the port 8080.
+
+  If we list the services again (`kubectl get services`), there will be a new service called ***ngninx-deployment***, where it will have a virtual IP address that Kubernetes created for it for exposing the port. **This cluster IP address will be only available only inside of the cluster**
+
+
+
+   
 
