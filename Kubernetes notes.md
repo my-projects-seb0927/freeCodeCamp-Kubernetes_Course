@@ -341,6 +341,16 @@ If you want to connect to specific deployments using an specific IP address you 
 
   If we list the services again (`kubectl get services`), there will be a new service called ***ngninx-deployment***, where it will have a virtual IP address that Kubernetes created for it for exposing the port. **This cluster IP address will be only available only inside of the cluster**
 
+# Conncecting to the Deployment using ClusterIP service
+> **Time stamp:** 01:16:40
+
+If we grab the *nginx-deployment* Cluster-IP and try from our local machine:
+```
+curl [NGINX CLUSTER-IP]:8080
+```
+
+**It will not work** because this IP is only available inside the cluster, so you have to `minikube ssh` and if you try to connect again you will be capable of connecting to the deployment.
+
 
 
    
