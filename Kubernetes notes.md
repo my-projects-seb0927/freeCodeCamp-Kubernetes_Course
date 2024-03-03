@@ -361,8 +361,46 @@ For deleting deployments and services:
 ```
 
 # Creating Node web application
-> **Time stamp::** 01:22:29
+> **Time stamp:** 01:22:29
 
 So, here he creates a NodeJs application. With this application he will show how to use Kubernetes.
 
+# Dockerizing Node application
+> **Time stamp:** 01:30:09
 
+Now, with our Node web application, the next step is to dockerize it!
+
+```
+FROM node:alpine
+
+WORKDIR /app
+
+EXPOSE 3000
+
+COPY package.json package-lock.json ./
+
+RUN npm install
+
+COPY . ./
+
+CMD ["npm", "start"]
+```
+
+The Docker code says the next:
+- The container will use node alpine as its base image.
+- It sets the working directory.
+- Expose the 3000 port.
+- It copies the files *package.json* and *package-lock.sjon*
+- It runs `npm install` when the image is build.
+- Copy all the remaining files from the *k8s-web-hello* folder like *index.mjs*.
+- Runs `npm start` as the final command.
+
+For building the Docker container:
+```
+# docker build ./ -t [DOCKERHUB USERNAME]/k8s-web-hello
+```
+
+For these notes, I'll be using my dockerhub username: seb0927
+```
+# docker build ./ -t seb0927/k8s-web-hello
+```
