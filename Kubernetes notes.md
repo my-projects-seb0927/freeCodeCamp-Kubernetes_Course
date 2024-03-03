@@ -415,3 +415,83 @@ Just do the process:
 ```
 
 For the Kubernetes deployment, I will be using mine, but you can use the one from Bodgan Stashchuk: *bstashchuk/k8s-web-hello*
+
+# Creating deployment based on the custom Docker image
+> **Time stamp:** 01:40:20
+
+For creating a deployment based on the custom Docker image:
+```
+# kubectl create deployment k8s-web-hello --image=seb0927/k8s-web-hello
+```
+
+When our pods are finally running, we have to expose the ports in order to see our application. For this task we will use ClusterIP (Remember that the IP is only available inside the cluster! What we talked before).
+
+```
+# kubectl expose deployment k8s-web-hello --port=3000
+```
+
+And if we enter to the cluster:
+```
+# minikube ssh
+# curl [Cluster IP Deployment]:3000; echo
+```
+
+We will see that everything is working
+
+# Scaling custom image deployment
+> **Time stamp:** 01:45:54
+
+(This was seen before, but let's see it again) For scaling our deployment:
+```
+kubectl scale deployment k8s-web-hello --replicas=4
+```
+
+if we make `curl` again:
+```
+# curl [Cluster IP Deployment]:3000; echo
+```
+You will get different responses from the different pods!
+
+# Creating NodePort service
+> **Time stamp:** 01:49:21
+
+Now, we wll modify type of the service which we created for our deployment because Cluster IP is onlu available from inside the cluster. Delethe the *k8s-web-hello* service with `kubectl delete service k8s-web-hello` and let's create another one with type **NodePort**:
+
+```
+# kubectl expose deployment k8s-web-hello --type=NodePort --port=3000
+```
+
+If you list the services again (`k get services`), you will see the service that you crreated with a randomly generated external port. **That external port is where you can connect from your local machine** with the IP where minikube is running (`minikube ip`). So for example, you would have to go to `192.168.59.101:32142` for viewing our application.
+
+The most simple way to get the URL for connection of a specific deployment is:
+```
+# minikube service [SERVICE NAME]
+# minikube service [SERVICE NAME] --url
+```
+In our case is:
+```
+# minikube service k8s-web-hello
+```
+
+# Creating LoadBalancer Service
+> **Time stamp:** 01:53:51
+
+Let's delete the NodePort service created before: `kubectl delete service k8s-web-hello`.
+
+Creating a LoadBalancer service:
+```
+# kubectl expose deployment k8s-web-hello --type=LoadBalancer --port=3000
+```
+And now there is a LoadBalancer service. If you do `kubectl get services` you will see that the External-IP is pending, but if you use Kubernetes on cloud services, that IP will be asigned automatically.
+
+Here in Minikube, the behaviour of LoadBalancer is similar to NodePort
+
+
+
+
+
+
+
+
+
+
