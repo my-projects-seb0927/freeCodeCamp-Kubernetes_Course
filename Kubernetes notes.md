@@ -487,7 +487,7 @@ And now there is a LoadBalancer service. If you do `kubectl get services` you wi
 Here in Minikube, the behaviour of LoadBalancer is similar to NodePort
 
 # Rolling update of the deployment
-> **Time stamp:** 1:57:00
+> **Time stamp:** 01:57:00
 
 If you make `kubectl describe deploy k8s-web-hello` you will see that the StrategyType is ***RollingUpdate***. That means that when a new version of your application is out, you want to roll out this new version without interrupting your service.
 
@@ -512,7 +512,10 @@ Here in this part Bodgan Stashchuk will roll out a new version of the applicatio
   ```
   And our new version is now rolled out! (`minikube service k8s-web-hello`)
 
+# What happens when one of the pods is deleted
+> **Time stamp:** 02:05:33
 
+It just gets created again automatically.
 
 
 
