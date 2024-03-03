@@ -360,15 +360,9 @@ For deleting deployments and services:
 # kubectl delte service [SERVICE NAME]
 ```
 
+# Creating Node web application
+> **Time stamp::** 01:22:29
+
+So, here he creates a NodeJs application. With this application he will show how to use Kubernetes.
 
 
-
-
-
-
-
-
-
-
-```
-```
