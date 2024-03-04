@@ -745,6 +745,17 @@ k apply -f k8s-web-to-nginx.yaml -f nginx.yaml
 
 Test if http://192.168.49.2:32532/nginx works.
 
+# Resolving Service name to IP address
+> **Time stamp:** 02:44:09
+
+```
+# kubectl get pods
+# kubectl exec [ANY POD FROM k8s-web-to-nginx] -- nslookup nginx
+# kubectl get services
+# kubectl exec [ANY POD FROM k8s-web-to-nginx] -- wget -q0- http://nginx
+```
+
+Kubernets is able to resolve name of the service to corersponding clusterIP
 
 
 
