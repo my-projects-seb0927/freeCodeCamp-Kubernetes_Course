@@ -727,6 +727,14 @@ spec:
 
 Go to the *k8s-web-to-nginx.yaml* to see the important notes!
 
+# Applying specifications for both apps
+> **Time stamp:** 02:42:10
+
+The commands for the *yaml* files!
+
+```
+k apply -f k8s-web-to-nginx.yaml -f nginx.yaml
+```
 
 
 
