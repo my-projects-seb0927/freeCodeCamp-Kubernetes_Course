@@ -517,6 +517,108 @@ Here in this part Bodgan Stashchuk will roll out a new version of the applicatio
 
 It just gets created again automatically.
 
+# Kubernetes Dashboard
+> **Time stamp:** 02:06:32
+
+If you are running Kubernetes on a Cloud service, accessing to the Kubernetes Dashboard can be hard because you have to secure web access to dashboard, but here in minikube is only:
+
+```
+# minikube dashboard
+```
+
+# Creating YAML deployment specification file
+> **Time stamp:** 02:10:50
+
+- **What we've seen:** Imperative approach
+- **What are we going to see:** Declarative approach
+
+> 💡 **Delete all done in Kubernetes:** `kubectl delete all --all`
+
+For creating the YAML deployment you need to create two files:
+- *deployment.yaml*
+- *service.yaml*
+
+Since we have the Kubernetes extension, let's make life easier (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧ ✧ﾟ･: *ヽ(◕ヮ◕ヽ)
+
+You can start writing *"Deployment"* and the Kubernetes extension will suggest you Deployment, and now the Yaml configuration file will be created automatically for you:
+
+```YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: <Image>
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: <Port>
+```
+
+This is a brief explanation of the Deployment declaration:
+```YAML
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # Name of the deployment
+  name: k8s-web-hello
+spec:
+  # Here we specify which podes will be managed by 
+  # this deployment
+  selector:
+    matchLabels:
+      app: k8s-web-hello
+
+  # It describes the pod. It follows the template of "Pod"
+  # suggested from the Kubernetes extension
+  template:
+    metadata:
+      # Label here is the same as spec -> selector -> matchLabels
+      labels:
+        app: k8s-web-hello
+
+    # Here we specify which containers we want to create in
+    # this pod
+    spec:
+      containers:
+      - name: k8s-web-hello
+        # Here we put the Docker image
+        image: <Image>
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+
+        # Specify which ports I would like to open in specific
+        # container
+        ports:
+        # Specify the number of port to expose on the pod's IP
+        # address
+        - containerPort: <Port>
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
 
