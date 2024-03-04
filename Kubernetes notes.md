@@ -688,7 +688,7 @@ Finally, for deleting deployments and services using declarative approach:
 
 ![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/c4e51957-71cc-4a02-b032-de73a23bbc8b)
 
-> 💡 The two deployments are connected through ClusterIP or static route
+> 💡 The two deployments are connected through ClusterIP by a static route (http://nginx). This last solution was thanks to **DNS Service** from Kubernetes
 
 # Creating another web app with two endpoints
 > **Time stamp:** 02:31:16
@@ -736,7 +736,14 @@ The commands for the *yaml* files!
 k apply -f k8s-web-to-nginx.yaml -f nginx.yaml
 ```
 
+# Verifying connectivity between different deployments
+> **Time stamp:** 02:44:09
 
+```
+# minikube service k8s-web-to-nginx
+```
+
+Test if http://192.168.49.2:32532/nginx works.
 
 
 
