@@ -616,6 +616,18 @@ spec:
 
 There you will see how to create any of the services of Kubernetes.
 
+# Applying YAML deployment file
+> **Time stamp:** 02:20:39
+
+Now it's time to apply this configuration using a declarative approach. In your terminal, located in the directory where you have your *deployment.yaml*:
+```
+# kubectl apply -f deployment.yaml
+```
+
+If you make any changes in the *deployment.yaml* file, just type the same command:
+```
+# kubectl apply -f deployment.yaml
+```
 
 
 
