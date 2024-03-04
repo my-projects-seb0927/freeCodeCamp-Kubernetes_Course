@@ -693,7 +693,21 @@ Finally, for deleting deployments and services using declarative approach:
 # Creating another web app with two endpoints
 > **Time stamp:** 02:31:16
 
-It's just new code added to *index.mjs*
+It's just new code added to *k8s-web-to-nginx/index.mjs*
+
+# Building custom Docker image for the second web app
+> **Time stamp:** 02:35:19
+
+```
+docker build ./ -t [NAME OF THE IMAGE]
+```
+
+The same that we did before...
+
+# Creating YAML specification for the second web app
+> **Time stamp:** 02:36:38
+
+A new *yaml* file created where deployments and services are all in one.
 
 
 
