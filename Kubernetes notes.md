@@ -688,7 +688,12 @@ Finally, for deleting deployments and services using declarative approach:
 
 ![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/c4e51957-71cc-4a02-b032-de73a23bbc8b)
 
-> 💡 The two deployments are connected through ClusterIP
+> 💡 The two deployments are connected through ClusterIP or static route
+
+# Creating another web app with two endpoints
+> **Time stamp:** 02:31:16
+
+It's just new code added to *index.mjs*
 
 
 
