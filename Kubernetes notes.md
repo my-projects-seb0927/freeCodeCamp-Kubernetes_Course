@@ -683,6 +683,13 @@ Finally, for deleting deployments and services using declarative approach:
 # kubectl delete -f deployment.yaml -f service.yaml
 ```
 
+# Plan for the creation of the two deployments
+> **Time stamp:** 02:28:34
+
+![image](https://github.com/my-projects-seb0927/freeCodeCamp-Kubernetes_Course/assets/83418390/c4e51957-71cc-4a02-b032-de73a23bbc8b)
+
+> 💡 The two deployments are connected through ClusterIP
+
 
 
 
