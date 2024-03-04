@@ -629,11 +629,59 @@ If you make any changes in the *deployment.yaml* file, just type the same comman
 # kubectl apply -f deployment.yaml
 ```
 
+# Creating YAML service specification file
+> **Time stamp:** 2:24:18
 
+In order to create Kubernetes services, you need to go to the *service.yaml* file. Type *Service* and the Kubernetes extension will handle the rest as you did in the last chapter:
 
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  selector:
+    app: myapp
+  ports:
+  - port: <Port>
+    targetPort: <Target Port>
+```
 
+So we need to change it like this:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-web-hello
+spec:
+  selector:
+    app: k8s-web-hello
+  ports:
+    # We expose the Node application port (3000) to our local machine
+    # to the port 3030
+  - port: 3030
+    targetPort: 3000
+```
 
+Finally, for specifying that we want a LoadBalancer:
+```yaml
+[...]
+spec:
+  type: LoadBalancer
+  selector:
+    app: k8s-web-hello
+[...]
+```
 
+And for applying our changes:
+```
+# kubectl apply -f service.yaml
+```
+
+Finally, for deleting deployments and services using declarative approach:
+```
+# kubectl delete -f deployment.yaml -f service.yaml
+```
 
 
 
