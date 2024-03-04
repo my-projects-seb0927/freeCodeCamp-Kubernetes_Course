@@ -709,7 +709,23 @@ The same that we did before...
 
 A new *yaml* file created where deployments and services are all in one.
 
+# Creating YAML specification for the NGINX app
+> **Time stamp:** 02:39:02
 
+Just as the title says...
+
+Some anotations:
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  # This name for the service will be utilized inside of
+  # our deployment
+  name: nginx
+spec:
+```
+
+Go to the *k8s-web-to-nginx.yaml* to see the important notes!
 
 
 
