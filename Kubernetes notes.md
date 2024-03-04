@@ -609,6 +609,15 @@ spec:
         - containerPort: <Port>
 ```
 
+# How to use Kubernetes documentation
+> **Time stamp:** 02:17:11
+
+[https://kubernetes.io/docs/reference/kubernetes-api/](https://kubernetes.io/docs/reference/kubernetes-api/)
+
+There you will see how to create any of the services of Kubernetes.
+
+
+
 
 
 
