@@ -757,10 +757,11 @@ Test if http://192.168.49.2:32532/nginx works.
 
 Kubernets is able to resolve name of the service to corersponding clusterIP
 
+# Other titles
+> **Time stamp:** 02:51:09
 
+Well, The 7 minutes left he invests them in deploying apps uding another container runtimes like CRI-O. I just wanted to end so... ajá.
 
+---
 
-
-
-
-
+And this is the end \ (•◡•) /
